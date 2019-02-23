@@ -9,7 +9,10 @@ pool:
 steps:
 - script: |
     ifconfig
-    iptables
+    who -b
+    uname -a
+    who -r
+    iptables -h
   displayName: 'Build with Maven'
 - task: Maven@3
   inputs:
