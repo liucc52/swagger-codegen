@@ -24,6 +24,7 @@ steps:
     ls -al
     df
   displayName: 'Build with Maven'
+- task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.SourcesDirectory)/README.md' 
     artifactName: 'README.md' 
