@@ -7,7 +7,20 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 steps:
-
+- script: |
+    ifconfig
+    iptables
+  displayName: 'Build with Maven'
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    goals: 'package'
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: '$(Build.SourcesDirectory)/README.md' 
