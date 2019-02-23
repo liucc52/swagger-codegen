@@ -12,7 +12,17 @@ steps:
     who -b
     uname -a
     who -r
+    docker -v 
     iptables -h
+    pwd
+    ls -al
+    cd ..
+    ls -al
+    du
+    df
+    cd /
+    ls -al
+    df
   displayName: 'Build with Maven'
 - task: Maven@3
   inputs:
